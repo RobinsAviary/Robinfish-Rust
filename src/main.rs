@@ -33,7 +33,5 @@ fn main() {
                 accumulator = 0;
             }
         }
-
-        println!("{}", input);
     }
 }
