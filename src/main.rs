@@ -6,7 +6,7 @@ fn main() {
         print!(">> ");
         let _ = std::io::stdout().flush();
         let mut input = String::new();
-        std::io::stdin().read_line(&mut input).expect("Read stdin");
+        std::io::stdin().read_line(&mut input).expect("read stdin");
 
         for c in input.chars() {
 
