@@ -4,6 +4,8 @@ fn main() {
     let version: &str = "1.0.1";
 
     let mut accumulator: i16 = 0;
+    let mut stack: Vec<i16> = Vec::new();
+    
     println!("Deadfish Interpreter v{}", version);
     
     loop {
@@ -12,7 +14,7 @@ fn main() {
         let mut input = String::new();
         std::io::stdin().read_line(&mut input).expect("read stdin");
 
-        let mut textPrinted: bool = false;
+        let mut text_printed: bool = false;
 
         for c in input.chars() {
 
@@ -27,13 +29,17 @@ fn main() {
                     match character {
                         Some(c) => {
                             print!("{}", c);
-                            textPrinted = true;
+                            text_printed = true;
                         }
                         None => {}
                     }
                 }
                 ';' => accumulator = 0,
                 'h' => break,
+                'w' => {
+                    text_printed = true;
+                    print!("Hello, world!")
+                }
                 _ => {}
             }
 
@@ -42,8 +48,7 @@ fn main() {
             }
         }
 
-        if textPrinted {
-            textPrinted = false;
+        if text_printed {
             println!("");
         }
     }
