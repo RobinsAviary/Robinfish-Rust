@@ -6,27 +6,17 @@ fn main() {
         print!(">> ");
         let _ = std::io::stdout().flush();
         let mut input = String::new();
-        std::io::stdin().read_line(&mut input).expect("Failed to read from stdin");
+        std::io::stdin().read_line(&mut input).expect("Read stdin");
 
         for c in input.chars() {
-            if c == 'i' {
-                accumulator += 1;
-            }
 
-            if c == 'd' {
-                accumulator -= 1;
-            }
-
-            if c == 's' {
-                accumulator = accumulator.pow(2);
-            }
-
-            if c == 'o' {
-                println!("{}", accumulator);
-            }
-
-            if c == ';' {
-                accumulator = 0;
+            match c {
+                'i' => accumulator += 1,
+                'd' => accumulator -= 1,
+                's' => accumulator = accumulator.pow(2),
+                'o' => println!("{}", accumulator),
+                ';' => accumulator = 0,
+                _ => {}
             }
 
             if accumulator == -1 || accumulator == 256 {
